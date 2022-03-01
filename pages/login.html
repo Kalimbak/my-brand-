@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
     <!-- UNICONS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
@@ -101,7 +101,7 @@
                     <!-- Login -->
                     <div class="qualification__content qualification__active" data-content id="login">
                         <!-- login Form -->
-                        <form action="" method="POST" class="contact__form grid" id="contactForm">
+                        <form action="dashboard.html"  method="POST" class="contact__form grid" id="contactForm">
                             <div class="grid">
                                 <div class="contact__content">
                                     <label for="" class="contact__label">Email</label>
@@ -114,7 +114,7 @@
                             </div>
 
                             <div>
-                                <a href="javascript:{}" class="button button--flex contact--btn" onclick="loginUser()">Login<i class="uil uil-message button__icon"></i></a>
+                                <a  class="button button--flex contact--btn" onclick="return validate()">Login<i class="uil uil-message button__icon"></i></a>
                             </div>
                         </form>
                     </div>
@@ -122,16 +122,16 @@
                     <!-- Register -->
                     <div class="qualification__content" data-content id="register">
                         <!-- Register Form -->
-                        <form action="" method="POST" class="contact__form grid" id="contactForm">
+                        <form action="hhhh.html" method="POST" class="contact__form grid" id="contactForm">
                             <div class="grid">
                                 <div class="contact__content">
                                     <label for="" class="contact__label">First Name</label>
-                                    <input type="text" name="name" id="fNameId" class="contact__input" placeholder="Alex Axel" >
+                                    <input type="text" name="name" id="fNameId" class="contact__input" placeholder="Firstname" >
                                 </div>
                                 
                                 <div class="contact__content">
                                     <label for="" class="contact__label">Last Name</label>
-                                    <input type="text" name="name" id="lNameId" class="contact__input" placeholder="Mucyo" >
+                                    <input type="text" name="name" id="lNameId" class="contact__input" placeholder="Lastname" >
                                 </div>
                                 <div class="contact__content">
                                     <label for="" class="contact__label">Email</label>
@@ -144,7 +144,7 @@
                             </div>
 
                             <div>
-                                <a href="javascript:{}" class="button button--flex contact--btn" onclick="postNewUser()">Sign Up<i class="uil uil-message button__icon"></i></a>
+                                <a href="javascript:{}" class="button button--flex contact--btn" onclick="return regValidation()">Sign Up<i class="uil uil-message button__icon"></i></a>
                             </div>
                         </form>
 
