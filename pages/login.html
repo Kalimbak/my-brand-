@@ -101,7 +101,7 @@
                     <!-- Login -->
                     <div class="qualification__content qualification__active" data-content id="login">
                         <!-- login Form -->
-                        <form action="dashboard.html"  method="POST" class="contact__form grid" id="contactForm">
+                        <form action="dashboard.html"  method="POST" class="contact__form grid" id="loginForm">
                             <div class="grid">
                                 <div class="contact__content">
                                     <label for="" class="contact__label">Email</label>
@@ -114,7 +114,7 @@
                             </div>
 
                             <div>
-                                <a  class="button button--flex contact--btn" onclick="return validate()">Login<i class="uil uil-message button__icon"></i></a>
+                                <button   class="button button--flex contact--btn" id="logForm"  type="submit">Login<i class="uil uil-message button__icon"></i></button>
                             </div>
                         </form>
                     </div>
@@ -122,7 +122,7 @@
                     <!-- Register -->
                     <div class="qualification__content" data-content id="register">
                         <!-- Register Form -->
-                        <form action="hhhh.html" method="POST" class="contact__form grid" id="contactForm">
+                        <form action="hhhh.html" method="POST" class="contact__form grid" id="registerForm">
                             <div class="grid">
                                 <div class="contact__content">
                                     <label for="" class="contact__label">First Name</label>
@@ -183,7 +183,13 @@
     <!-- SWIPER JS -->
     <script src="../public/assets/js/swiper-bundle.min.js"></script>
     <!-- MAIN JS -->
-    <script src="../public/assets/js/main.js"></script>
-    <script src="../public/assets/js/Auth.js"></script>
+    
+    <!-- <script src="../public/assets/js/Auth.js"></script> -->
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+<script src="../public/assets/js/main.js"></script>
 </body>
 </html>
