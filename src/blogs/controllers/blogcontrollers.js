@@ -2,11 +2,13 @@ import blogSchema from "../database/models/blogschema.js";
 
 
 const createBlog = async(req, res) => {
+   
     try {
       const blogs =  await blogSchema.create({
             title: req.body.title,
             description: req.body.description,
-            content: req.body.content
+            content: req.body.content,
+            createdAt: new Date().toISOString()
         })
         res.status(200).json({
             message: 'blog successfully created',
@@ -19,6 +21,7 @@ const createBlog = async(req, res) => {
         
     }
 }
+
 
 const getBlogs = async(req, res) => {
     try {

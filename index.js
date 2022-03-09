@@ -1,8 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import router from '../src/blogs/routes/blogroutes.js'
-import userRouter from '../src/blogs/routes/usersroutes.js'
-import messageRouter from '../src/blogs/routes/messagesrouter.js'
+import router from './src/blogs/routes/blogroutes.js';
+import userRouter from './src/blogs/routes/usersroutes.js';
+import messageRouter from './src/blogs/routes/messagesrouter.js';
+import dotenv from 'dotenv';
+// import validator from 'validator';
+
+dotenv.config()
 
 
 
@@ -14,5 +18,6 @@ app.use(express.json());
 app.use(router);
 app.use(userRouter)
 app.use(messageRouter)
+// app.use(validator)
 
 app.listen(3000, () => console.log('server running'));

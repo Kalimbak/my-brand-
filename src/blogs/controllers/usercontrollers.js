@@ -1,40 +1,8 @@
 import userSchema from "../database/models/userschema.js";
+import dotenv from "dotenv";
 
-// const users = [];
+dotenv.config()
 
-// const homepage = (req, res) => res.json ({message: 'your request has been received'});
-
-// const getUsers = (req, res) => res.json ({message: 'all users retreived', users});
-
-// const addUser = (req, res) => {
-//     const user = req.body;
-//     user.id = users.length;
-//     users.push(user);
-//     res.json({message: `user ${user.name} successfully added`, user});
-// }
-// const getUser = (req, res) => {
-//     const user = req.body;
-//     user.id = users.length;
-//     users.push(user);
-//     res.json({message: `user ${user.name} successfully retrieved`, user});
-// }
-
-// const updateUser = (req, res) => {
-//     const id = req.params.id;
-//     const user = users.find((e) => e.id == id);
-//     const update = req.body;
-//     Object.assign(user, update);
-//     res.json({message: `user ${id} successully updated`, user})
-
-// }
-
-// const deleteUser = (req, res) => {
-//     const {id} = req.params;
-//     users.splice(id, 1);
-//     res.json({message: `user ${id} successfully deleted`});
-// }
-
-// export {homepage, getUsers, addUser, getUser, updateUser, deleteUser, users}
 
 const createUser = async(req, res) => {
     try {
@@ -54,6 +22,8 @@ const createUser = async(req, res) => {
         
     }
 }
+
+
 
 const getUsers = async(req, res) => {
     try {

@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/blogs', createBlog)
 router.get('/blogs',getBlogs)
 router.post('/blogs/:id', getBlog)
-router.post('/blogs/:id', updateBlog)
+router.patch('/blogs/:id', updateBlog)
 router.delete('/blogs/:id', deleteBlog)
 
 export default router;
