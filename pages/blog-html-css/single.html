@@ -20,11 +20,11 @@
 </head>
 
 <body>
-  <!-- Facebook Page Plugin SDK -->
+  <!-- Facebook Page Plugin SDK
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous"
     src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=285071545181837&autoLogAppEvents=1">
-  </script>
+  </script> -->
 
   <header>
     <div class="logo">
@@ -118,11 +118,11 @@
       <!-- Sidebar -->
       <div class="sidebar single">
 
-        <div class="fb-page" data-href="https://web.facebook.com/codingpoets/" data-small-header="false"
+        <!-- <div class="fb-page" data-href="https://web.facebook.com/codingpoets/" data-small-header="false"
           data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
           <blockquote cite="https://web.facebook.com/codingpoets/" class="fb-xfbml-parse-ignore"><a
               href="https://web.facebook.com/codingpoets/">Coding Poets</a></blockquote>
-        </div>
+        </div> -->
 
 
         <div class="section popular">
@@ -164,8 +164,52 @@
       <!-- // Sidebar -->
 
     </div>
-    <!-- // Content -->
 
+    
+    <!-- // Content -->
+    <div class="row mt-5 text-black">
+      <div class="col-lg-12">
+          <h5 class="muted-text fadeInUp animated">
+              Want to comment on this Article
+          </h5>
+          <div class="row mb-5">
+              <div class="col-lg-6 fadeInUp animated">
+                  <form action="" method="post" id="form_comment">
+                      <span class="text-danger" id="name-error"></span>
+
+
+                      <input type="text" name="name" class="form-control" placeholder="Full Name" id="">
+                      <span class="text-danger" id="email-error"></span>
+                      <input type="text" name="email" class="form-control  mt-3" placeholder="Email">
+
+                      <span class="text-danger" id="comment-error"></span>
+                      <textarea rows="4" cols="50" name="comment" class=" form-control mt-3"
+                          placeholder="Give your comment here..."></textarea>
+
+                      <input type='submit' value="COMMENT" class="btn btn-primary-1 mb-3 mt-3">
+                  </form>
+              </div>
+              <div class="col-lg-6  animated fadeInUp pb-4 ">
+                  <h4 class=" text-black-10 ">COMMENT:</h4>
+                  <div id="blogComment">
+
+                  </div>
+
+
+
+              </div> -->
+
+          </div>
+
+      </div>
+  </div>
+
+  <div>
+
+
+
+
+  </div>
   </div>
   <!-- // Page Wrapper -->
 
