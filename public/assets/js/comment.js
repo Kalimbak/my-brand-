@@ -4,20 +4,19 @@
 
 const apiUrl = 'https://kalimbacapstone.herokuapp.com'
 
-const messageFormData = () => {
+const commentFormData = () => {
     const fullNames = document.getElementById('nameId').value
     const email = document.getElementById('emailId').value
-    const project = document.getElementById('projectId').value
-    const message = document.getElementById('messageId').value
+    const comment = document.getElementById('commentId').value
 
-    const messageData = {fullNames, email, project, message}
+    const messageData = {fullNames, email, comment}
     return messageData
 }
 
 
 const clearForm = () => {
-    const contactForm = document.getElementById('contactForm')
-    contactForm.reset()
+    const commentForm = document.getElementById('commentForm')
+    commentForm.reset()
     return false
  }
 
@@ -33,7 +32,7 @@ sendQuerry.addEventListener('click', async (e) => {
 
 
   try{
-  const response =  await  fetch(apiUrl + "/message", {
+  const response =  await  fetch(apiUrl + "/blogs/:id/comments/", {
 
        method: 'POST',
        headers: {
@@ -41,10 +40,9 @@ sendQuerry.addEventListener('click', async (e) => {
              'Accept': 'application/json'
         },
         body: JSON.stringify({
-           names: messageFormData().fullNames,
-           email: messageFormData().email,
-           project: messageFormData().project,
-           message: messageFormData().message
+           names: commentFormData().fullNames,
+           email: commentFormData().email,
+           comment: commentFormData().comment
         })
     })
     const data = await response.json()

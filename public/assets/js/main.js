@@ -206,290 +206,70 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-icon', getCurrentIcon());
 })
 
-// let a;
 
-// const messageFormData = () => {
-//     const fullNames = document.getElementById('nameId').value
-//     const email = document.getElementById('emailId').value
-//     const project = document.getElementById('projectId').value
-//     const message = document.getElementById('messageId').value
-
-//     const messageData = {fullNames, email, project, message}
-//     return messageData
-// }
-
-// const submitQuerry = document.getElementById('sendQuerry')
-
-
-// const isNull = () => {
-//     // console.log({ fullNames: messageFormData().fullNames, email: messageFormData().email, project: messageFormData().project, message: messageFormData().message })
-//     if (messageFormData().fullNames == '') {
-//         alert('Name Required')
-//         a = false
-//     }
-//     if (messageFormData().email == '') {
-//         alert('Email Required')
-//         a = false
-//     }
-//     if (messageFormData().project == '') {
-//         alert('Project Required')
-//         a = false
-//     }
-//     if (messageFormData().message == '') {
-//         alert('Message Required')
-//         a = false
-//     }
-//     else return a = true
-//     return a
-//  }
-
-// submitQuerry.addEventListener('click', (e) => {
-//     e.preventDefault()
-//     isNull()
-//     submitQuerryForm()
-// })
-
-// const submitQuerryForm = () => {
-//     if (isNull() == false) alert('Message not succefully sent')
-//     else alert('Message Sent Succefully')
-// }
-
-
-// login form validations
-
-
-
-// contact form 
-
-// function validateEmail(email){
-//     let validRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+function validateEmail(email){
+    let validRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
     
-//     if(!validRegex.test(email)){
-//         return false;
-//     } else {
-//         return true;
-//     }};
+    if(!validRegex.test(email)){
+        return false;
+    } else {
+        return true;
+    }};
 
-// // function allLetter(myValue){
-// //     let letters = /^[A-Za-z\s]+$/;
-// //     if(!letters.test(myValue)) {
-// //         return false;
-// //     } else{
-// //         return true;
-// //     }
-// // }
 
-// // function validateRange(myValue, minLength, maxLength){
-// //     let myValueLength = myValue.length;
-// //     if(myValueLength == 0 || myValueLength < minLength || myValueLength > maxLength){
-// //         return false;
-// //     } else {
-// //         return true;
-// //     }
-// // }
-// function validation(){
+function validation(){
 
-//     let counter = 0;
+    let counter = 0;
     
     
-//     let username = document.getElementById("nameId");
-//     let email = document.getElementById("emailId");
-//     let project = document.getElementById("projectId");
-//     let message = document.getElementById("messageId");
+    let username = document.getElementById("nameId");
+    let email = document.getElementById("emailId");
+    let project = document.getElementById("projectId");
+    let message = document.getElementById("messageId");
 
-//     if( username.value == "" ){
-//         counter ++;
-//         alert("Name required")
-//         // return false;
-//     }
-//     // else{
-//     //     // alert("message sent succefull")
-//     //     true;
-//     // }
+    if( username.value == "" ){
+        counter ++;
+        alert("Name required")
+        // return false;
+    }
+    // else{
+    //     // alert("message sent succefull")
+    //     true;
+    // }
 
     
-//     if(!validateEmail(email.value)){
+    if(!validateEmail(email.value)){
 
-//         counter ++;
-//         alert("Email required")
-//         // return false;
-//     }
-//     // else{
-//     //     // alert("message sent succefull")
-//     //     true;
-//     // }
-//     if( project.value == "" ){
-//         counter ++;
-//         alert("Projectrequired")
-//         // return false;
-//     }
-//     // else{
-//     //     // alert("message sent succefull")
-//     //     true;
-//     // }
-//     if( message.value == "" ){
-//         counter ++;
-//         alert("Message required")
-//         // return false;
-//     }
-//     // else{
-//     //     // alert("message sent succefull")
-//     //     true;
-//     // }
+        counter ++;
+        alert("Email required")
+        // return false;
+    }
+    // else{
+    //     // alert("message sent succefull")
+    //     true;
+    // }
+    if( project.value == "" ){
+        counter ++;
+        alert("Projectrequired")
+        // return false;
+    }
+    // else{
+    //     // alert("message sent succefull")
+    //     true;
+    // }
+    if( message.value == "" ){
+        counter ++;
+        alert("Message required")
+        // return false;
+    }
+    // else{
+    //     // alert("message sent succefull")
+    //     true;
+    // }
 
-//     if(counter == 0){
-//         alert("all good");
-//     }
+    if(counter == 0){
+        alert("message sent succefully");
+    }
     
    
-// }
-
-// // register validation
-
-// function validateEmail(email){
-//     let validRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
-    
-//     if(!validRegex.test(email)){
-//         return false;
-//     } else {
-//         return true;
-//     }};
-
-// // function allLetter(myValue){
-// //     let letters = /^[A-Za-z\s]+$/;
-// //     if(!letters.test(myValue)) {
-// //         return false;
-// //     } else{
-// //         return true;
-// //     }
-// // }
-
-// // function validateRange(myValue, minLength, maxLength){
-// //     let myValueLength = myValue.length;
-// //     if(myValueLength == 0 || myValueLength < minLength || myValueLength > maxLength){
-// //         return false;
-// //     } else {
-// //         return true;
-// //     }
-// // }
-// function regValidation(){
-
-//     let counter = 0;
-    
-    
-//     let username = document.getElementById("fameId");
-//     let lastname = document.getElementById("lNameId");
-//     let email = document.getElementById("regEmailId");
-//     let password = document.getElementById("regPasswordId");
-
-//     if( username.value == "" ){
-//         counter ++;
-//         alert("firstname required")
-//         // return false;
-//     }
-//     // else{
-//     //     // alert("message sent succefull")
-//     //     true;
-//     // }
-//     if( lastname.value == "" ){
-//         counter ++;
-//         alert("lastname required")
-//         // return false;
-//     }
-//     // else{
-//     //     // alert("message sent succefull")
-//     //     true;
-//     // }
-    
-//     if(!validateEmail(email.value)){
-
-//         counter ++;
-//         alert("Email required")
-//         // return false;
-//     }
-//     // else{
-//     //     // alert("message sent succefull")
-//     //     true;
-//     // }
-   
-//     if( password.value == "" ){
-//         counter ++;
-//         alert("Message required")
-//         // return false;
-//     }
-//     // else{
-//     //     // alert("message sent succefull")
-//     //     true;
-//     // }
-
-//     if(counter == 0){
-//         alert("all good");
-//     }
-    
-   
-// }
-
-
-//   const firebaseConfig = {
-//     apiKey: "AIzaSyCgBqyti3giSAggKoUABN2NdLFuGsB9yoc",
-//     authDomain: "admin-2d3a6.firebaseapp.com",
-//     projectId: "admin-2d3a6",
-//     storageBucket: "admin-2d3a6.appspot.com",
-//     messagingSenderId: "814284718272",
-//     appId: "1:814284718272:web:da6c07dbc4f036e476ed25",
-//     measurementId: "G-5Y16GEX4YG"
-//   };
-
-//   // Initialize Firebase
-//   const app = firebase.initializeApp(firebaseConfig);
-// //   const analytics = getAnalytics(app);
-// const loginForm = document.querySelector('#loginForm');
-// loginForm.addEventListener('submit', (e)  => { 
-//     e.preventDefault();
-//     function validateEmailLogin(email){
-//         let validRegex = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
-        
-//         if(!validRegex.test(email)){
-//             return false;
-//         } else {
-            
-//             return true;
-//         }};
-    
-//     function validate(){
-        
-//         var username = document.getElementById("logEmailId");
-//         var password = document.getElementById("logPasswordId");
-       
-        
-       
-//         if(username.value == " " || password.value == ""){
-//             alert("Login unsuccefull");
-//             return false;
-//         }
-//         else{
-//             validateEmailLogin(username.value)
-    
-//             // alert("Login succefull")
-//             true;
-//         }
-//     }
-    
-//     //  loginForm.id
-    
-
-// app.auth().signInWithEmailAndPassword(loginForm.email.value, loginForm.password.value)
-//   .then((userCredential) => {
-//     // Signed in
-//     var user = userCredential.user;
-//     console.log(user.email)
-//     location.href="./blog-html-css/admin/users/index.html"
-//     // ...
-//   })
-//   .catch((error) => {
-//     var errorCode = error.code;
-//     var errorMessage = error.message;
-//   })
-// });
-
-// console.log(loginForm)
+}

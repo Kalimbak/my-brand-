@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8fb78c4ea1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="adminpage.css">
+    <script src="./authentication.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                   <a href="#">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span class="title"><h2>Admin</h2></span>
+                   </a>
+                </li>
+                <li>
+                   <a href="./addarticles.html">
+                    <span class="icon"><i class="far fa-newspaper"></i></span>
+                    <span class="title">Add Articles</span>
+                   </a>
+                </li>
+           
+                <li>
+                    <a href="./Articles.html">
+                     <span class="icon"><i class="far fa-newspaper"></i></span>
+                     <span class="title">Articles</span>
+ 
+                    </a>
+                    
+                 </li>
+                 <li>
+                    <a href="./sitemessages.html">
+                     <span class="icon"><i class="fas fa-comment"></i></span>
+                     <span class="title">Messages</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./comments.html">
+                     <span class="icon"><i class="fas fa-comment"></i></span>
+                     <span class="title"> Comments</span>
+                    </a>
+                </li>
+                <li class="logout">
+                   <a href="#">
+                    <span class="icon"><i class="fas fa-sign-out-alt"></i> </span>
+                    <span class="title" onclick="logout()">Logout</span>
+                   </a>
+                </li>
+            </ul>
+
+        </div>
+    
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle" onclick="toggleMenu();"></div>
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="search here">
+                    <i class="fas fa-search"></i>
+                </label>
+                </div>
+                <div class="user">
+                    <img class="user" src="/newdashboard/about.jpg">
+    
+                
+            </div>
+            
+        
+        </div>
+        <main>
+            <h1>List of all Contact</h1>
+            <div class=" bg-danger">
+
+                <table class="table   table-light table-hover" style="background-color: white;">
+                    <thead class="thead-dark">
+                        <tr>
+                                <th>NO</th>
+                                <th>Name</th>
+                            <th>Email</th>
+                            <th>project</th>
+                            <th>Message</th>
+                            <th>Action</th>
+                        </tr>
+                    
+                    </thead>
+                            <tbody id="messages" class="tbody-light">
+                   
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        </div>
+        <div class="main-content">
+            <div class="body">
+                <div class="messages">
+                     
+                </div>
+            </div>
+              
+        </div>
+        <div id="cards"></div>
+        </div>
+        
+    </div>
+    </div>
+    <script>
+        function toggleMenu(){
+         let toggle = document.querySelector('.toggle');
+         let navigation = document.querySelector('.navigation');
+         let main = document.querySelector('.main');
+         main.classList.toggle('active')
+         toggle.classList.toggle('active');
+         navigation.classList.toggle('active');
+}
+    </script>
+        <script src="./sitemessages.js"></script>
+       
+
+
+</body>
+</html>

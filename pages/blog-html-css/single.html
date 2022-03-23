@@ -15,16 +15,13 @@
 
   <!-- Custom Styling -->
   <link rel="stylesheet" href="css/style.css">
+  <script src="../../public/assets/js/logout.js"></script>
 
   <title>Single Post</title>
 </head>
 
 <body>
-  <!-- Facebook Page Plugin SDK
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=285071545181837&autoLogAppEvents=1">
-  </script> -->
+ 
 
   <header>
     <div class="logo">
@@ -43,7 +40,7 @@
         </a>
         <ul>
           <li><a href="/pages/blog-html-css/admin/posts/index.html">Dashboard</a></li>
-          <li><a href="#" class="logout">Logout</a></li>
+          <li><a href="#" onclick="logout()" class="logout">Logout</a></li>
         </ul>
       </li>
     </ul>
@@ -118,12 +115,7 @@
       <!-- Sidebar -->
       <div class="sidebar single">
 
-        <!-- <div class="fb-page" data-href="https://web.facebook.com/codingpoets/" data-small-header="false"
-          data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-          <blockquote cite="https://web.facebook.com/codingpoets/" class="fb-xfbml-parse-ignore"><a
-              href="https://web.facebook.com/codingpoets/">Coding Poets</a></blockquote>
-        </div> -->
-
+     
 
         <div class="section popular">
           <h2 class="section-title">Recent</h2>
@@ -146,19 +138,7 @@
               <h4>Online Store</h4>
             </a>
           </div>
-          <!-- <div class="post clearfix">
-            <img src="/public/assets/img/portfolio1.jpg" alt="">
-            <a href="" class="title">
-              <h4>How to overcome your fears</h4>
-            </a>
-          </div>
-          <div class="post clearfix">
-            <img src="/public/assets/img/portfolio1.jpg" alt="">
-            <a href="" class="title">
-              <h4>How to overcome your fears</h4>
-            </a>
-          </div> -->
-
+      
         </div>
       </div>
       <!-- // Sidebar -->
@@ -174,19 +154,19 @@
           </h5>
           <div class="row mb-5">
               <div class="col-lg-6 fadeInUp animated">
-                  <form action="" method="post" id="form_comment">
+                  <form action="" method="post" id="commentForm">
                       <span class="text-danger" id="name-error"></span>
 
 
-                      <input type="text" name="name" class="form-control" placeholder="Full Name" id="">
+                      <input type="text" name="name" class="form-control" placeholder="Full Name" id="nameId">
                       <span class="text-danger" id="email-error"></span>
-                      <input type="text" name="email" class="form-control  mt-3" placeholder="Email">
+                      <input type="text" name="email" class="form-control  mt-3" placeholder="Email" id="emailId">
 
                       <span class="text-danger" id="comment-error"></span>
                       <textarea rows="4" cols="50" name="comment" class=" form-control mt-3"
-                          placeholder="Give your comment here..."></textarea>
+                          placeholder="Give your comment here..." id="commentId"></textarea>
 
-                      <input type='submit' value="COMMENT" class="btn btn-primary-1 mb-3 mt-3">
+                      <input type='submit' id="sendQuerry" value="COMMENT" class="btn btn-primary-1 mb-3 mt-3">
                   </form>
               </div>
               <div class="col-lg-6  animated fadeInUp pb-4 ">
@@ -229,7 +209,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
   <!-- Custom Script -->
-  <script src="js/scripts.js"></script>
+  <script src="../../public/assets/js/comment.js"></script>
 
 </body>
 

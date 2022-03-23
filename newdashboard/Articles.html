@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8fb78c4ea1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="adminpage.css">
+    <link rel="stylesheet" href="sitemessages.js">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <script src="./authentication.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                   <a href="#">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span class="title"><h2>Admin</h2></span>
+                   </a>
+                </li>
+                <li>
+                   <a href="./addarticles.html">
+                    <span class="icon"><i class="far fa-newspaper"></i></span>
+                    <span class="title">Add Articles</span>
+
+                   </a>
+                   
+                </li>
+                <li>
+                    <a href="./Articles.html">
+                     <span class="icon"><i class="far fa-newspaper"></i></span>
+                     <span class="title">Articles</span>
+ 
+                    </a>
+                    
+                 </li>
+            
+                 <li>
+                    <a href="./sitemessages.html">
+                     <span class="icon"><i class="fas fa-comment"></i></span>
+                     <span class="title">Messages</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./comments.html">
+                     <span class="icon"><i class="fas fa-comment"></i></span>
+                     <span class="title"> Comments</span>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                    <span class="icon"><i class="fas fa-sign-out-alt"></i> </span>
+                    <span class="title" onclick="logout()">Logout</span>
+                   </a>
+                </li>
+            </ul>
+          
+        </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle" onclick="toggleMenu();"></div>
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="search here">
+                    <i class="fas fa-search"></i>
+                </label>
+                </div>
+                <div class="user">
+                    <img class="user" src="./about.jpg">
+    
+                
+            </div>
+            
+
+        </div>
+        <div class="card article-card-queries">
+            <h3 class="card-title">Blog</h3>
+            <div class="card-body">
+                <table class="blogs-table">
+                    <thead>
+                        <tr class="nav_list">
+                            <th>NO</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>content</th>
+                            <th>Actions</th>
+                            </tr>
+                    </thead>
+                    <tbody id="posts">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+   
+    </div>
+  
+    <script>
+        function toggleMenu(){
+         let toggle = document.querySelector('.toggle');
+         let navigation = document.querySelector('.navigation');
+         let main = document.querySelector('.main');
+         main.classList.toggle('active')
+         toggle.classList.toggle('active');
+         navigation.classList.toggle('active');
+// }    function checkLogin(){
+//      let users = JSON.parse(localStorage.getItem('users'));
+//      console.log(users.loggedIn)
+//      if(users.loggedIn){
+
+//      }
+//      else {
+//          window.location="loginpage.html"
+//      }
+     
+}
+    //  checkLogin()
+    </script>
+    <script>
+        let norows = 0
+        function getdataOnIndex()  {
+           let posts_div = document.getElementById("posts");
+           let dataToDisplay = "";
+           let requestOptions = {
+               method: 'GET',
+               redirect: 'follow'
+             };
+             fetch("https://kalimbacapstone.herokuapp.com/blog", requestOptions)
+                      .then(response => response.json())
+                      .then(result => {
+                         
+                              result.forEach(element=>{
+                                  dataToDisplay += `
+                        <tr>
+                            <td>
+                                    ${norows += 1}
+                                  </td>
+                            <td>
+                                      <img src="${element.imageURL}">
+                                  </td>
+                                  <td>
+                                     ${element.title}
+                                  </td>
+                                  <td>
+                                      ${element.content}
+                                  </td>
+                                  <td>
+                                      <div class="flex">
+                                           <a href="new-article.html" onclick="storeData('${element._id}','${element.title}',${element.content}','${element.imageURL}');">
+                                          <button>Update</button>
+                                      </a>
+                                   
+              <a href="#">
+                                          <button id='${element._id}' onclick='comments(
+                this.id
+              )' class="combtn">comments</button>
+             
+                                  </td>
+                              </tr>
+                              `;
+                            })
+                            posts_div.innerHTML = dataToDisplay;
+                           console.log(posts_div)
+                      })
+                      .catch(error => console.log('error', error));
+            } window.onload=getdataOnIndex();
+      </script>
+    <!-- <script src="./loginp.js"></script> -->
+</body>
+</html>
