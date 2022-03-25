@@ -45,15 +45,20 @@
         <form class="create-blog-post" name="create" method="POST" id="form">
             <h3 class="post-title">Edit Title of Post</h3>
             <input type="text" name="title" placeholder="Title" id="title"/>
+            
            
             <h3 class="post-title">Edit Post image</h3>
             <input type="file" name="image" class="fileBtn" id="img"/>
         <div class="imgPreview" >
             <img class="preview" alt="" id="imagePreview" />
         </div>
-        
-        <textarea name="body" placeholder="Edit the Body" id="content"></textarea>
-      
+        <h3 class="post-title">Edit Post content</h3>
+        <textarea name="content" placeholder="Edit the content" id="content"></textarea>
+
+        <h3 class="post-title">Edit Post body</h3>
+    <textarea name="body" placeholder="Edit the Body" id="body"></textarea>
+
+
         <button class="submit create-btn" type="submit ">UPDATE</button>
         </form>
     </section>
@@ -68,7 +73,7 @@
         
             document.getElementById("title").value = localStorage.getItem("title")
             document.getElementById("content").value = localStorage.getItem("content")
-
+            document.getElementById("body").value = localStorage.getItem("body")
             document.getElementById("imagePreview").style.display = "none";
     
           } else {
@@ -78,7 +83,7 @@
         }
         getDataForm();
         let token = localStorage.getItem("token");
-        async function addDataToCollection(title, content, imageUrl) {
+        async function addDataToCollection(title, content, body, imageUrl) {
     
           var myHeaders = new Headers();
           myHeaders.append("Authorization", token);
@@ -87,6 +92,7 @@
           var raw = JSON.stringify({
             "title": title,
             "content": content,
+            "body": body,
             "imageUrl": image
           });
     
@@ -119,13 +125,14 @@
      console.log(result)
     document.getElementById("title").value = result.title
     document.getElementById("content").value = result.content
+    document.getElementById("body").value = result.body
     document.getElementById("imagePreview").setAttribute('url', result.image)
 
  })
 
 
     
-        function update(id, title, content ) {
+        function update(id, title, content, body ) {
     
           var myHeaders = new Headers();
           myHeaders.append("Authorization", token);
@@ -134,6 +141,7 @@
           var raw = JSON.stringify({
             "title": title,
             "content": content,
+            "body": body,
        
           });
     

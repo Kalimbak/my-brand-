@@ -112,20 +112,20 @@ modalCloses.forEach((modalClose) => {
 
 /* PORTFOLIO SWIPER  */
 
-// let swiper = new Swiper(".portfolio__container", {
-//     cssMode: true,
-//     loop: false, //Allos Us To Loop Through Pagination
-//     navigation: {
-//       nextEl: ".swiper-button-next",
-//       prevEl: ".swiper-button-prev",
-//     },
-//     pagination: {
-//       el: ".swiper-pagination",
-//       clickable: true,
-//     },
-//     mousewheel: true,
-//     keyboard: true,
-//   });
+let swiper = new Swiper(".portfolio__container", {
+    cssMode: true,
+    loop: false, //Allos Us To Loop Through Pagination
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    mousewheel: true,
+    keyboard: true,
+  });
 
 /* TESTIMONIAL */
 
