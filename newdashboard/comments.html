@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="adminpage.css">
     <script src="./authentication.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
-    <title>Document</title>
+    <script src="../public/assets/js/logout.js"></script>
+    <title>comments</title>
     
 </head>
 <body>
@@ -85,13 +86,12 @@
                                 <th>NO</th>
                                 <th>Name</th>
                             <th>Email</th>
-                            <th>project</th>
-                            <th>Message</th>
-                            <th>Action</th>
+                            <th>comment</th>
+                          
                         </tr>
                     
                     </thead>
-                            <tbody id="messages" class="tbody-light">
+                            <tbody id="comments" class="tbody-light">
                    
                     </tbody>
                 </table>
@@ -122,7 +122,151 @@
     </script>
         <!-- <script src="./sitemessages.js"></script> -->
         
+<!-- <script>
+      const blogId = location.search.substring(1)
 
+let norows = 0
+function getdataOnIndex()  {
+    let posts_div = document.getElementById("comments");
+    let dataToDisplay= "";
+    let requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+      fetch(`https://kalimbacapstone.herokuapp.com/blogs/${blogId}/comments/${blogId}`, requestOptions)
+               .then(response => response.json())
 
+               .then(result => {
+                  console.log(result.result);
+                       result.result.forEach(element=>{
+                           dataToDisplay += `
+                 <tr>
+                 <td>
+                               ${norows += 1}
+                           </td>
+                           <td>
+                               ${element.names}
+                           </td>
+                           <td>
+                              ${element.email}
+                           </td>
+                           <td>
+                               ${element.comment}
+                           </td>
+                        
+                           <td>
+                               <div class="flex">
+                            
+                               <a href="#">
+                                   <button id='${element._id}' onclick='delete_message(
+         this.id
+       )' class="delete-button">Delete</button>
+  
+                                  
+                           </td>
+                       </tr>
+                       `;
+                     })
+                     posts_div.innerHTML = dataToDisplay;
+                    console.log(posts_div)
+               })
+               .catch(error => console.log('error', error));
+     } window.onload=getdataOnIndex();
+</script> -->
+<script>
+      const blogId = location.search.substring(1)
+      console.log(blogId);
+
+      
+//  let requestOption = {
+//      method: 'GET',
+//      redirect:'follow'
+//  };
+//  fetch(`https://kalimbacapstone.herokuapp.com/blogs/${blogId}/comments`, requestOption)
+//  .then(response => response.json())
+//  .then(result =>{
+    
+//     document.getElementById("names").value = result.name
+//     document.getElementById("email").value = result.email
+//     document.getElementById("comment").value = result.comment
+  
+//  })
+ 
+
+ let norows = 0
+function getdataOnIndex()  {
+    let posts_div = document.getElementById("comments");
+    let dataToDisplay="";
+    let requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+      fetch(`https://kalimbacapstone.herokuapp.com/blogs/${blogId}/comments`, requestOptions)
+               .then(response => response.json())
+
+               .then(result => {
+                  console.log(result.result);
+                       result.result.forEach(element=>{
+                           dataToDisplay += `
+                 <tr>
+                 <td>
+                               ${norows += 1}
+                           </td>
+                           <td>
+                               ${element.names}
+                           </td>
+                           <td>
+                              ${element.email}
+                           </td>
+                           <td>
+                               ${element.comment}
+                           </td>
+                         
+                           <td>
+                               <div class="flex">
+                               <a href="#">
+                                   <button id='${element._id}' onclick='delete_message(
+         this.id
+       )' class="delete-button">Delete</button>
+  
+                                  
+                           </td>
+                       </tr>
+                       `;
+                     })
+                     posts_div.innerHTML = dataToDisplay;
+                    console.log(posts_div)
+               })
+               .catch(error => console.log('error', error));
+            }
+
+            function delete_message(id) {
+                let token = localStorage.getItem("token");
+                console.log(id)
+                var myHeaders = new Headers();
+                myHeaders.append("Authorization", token);
+          
+                var requestOptions = {
+                  method: 'DELETE',
+                  headers: myHeaders,
+                  redirect: 'follow'
+                };
+          
+                fetch(`https://kalimbacapstone.herokuapp.com/blogs/${blogId}/comments/${id}`, requestOptions)
+                  .then(response => response.text())
+                  .then(result => {
+                    console.log(result)
+                    alert("comment deleted well done")
+                    getdataOnIndex()
+        
+        
+                  })
+        
+                
+              
+                .catch(error => console.log('error', error));
+              }
+            window.onload=getdataOnIndex();
+</script>
 </body>
 </html>

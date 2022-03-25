@@ -5,16 +5,13 @@ loginForm.addEventListener('click',async (e)=>{
     const email=document.getElementById('logEmailId').value;
     const password=document.getElementById('logPasswordId').value;
     if(email.length==0){
-        document.querySelector('.error-email').innerHTML="please enter a valid email adress";
+        // document.querySelector('.error-email').innerHTML="please enter a valid email adress";
+        alert("please enter an existing email")
     }else if(password.length==0){
-        document.querySelector('.error-password').innerHTML="please enter a password";
+        // document.querySelector('.error-password').innerHTML="please enter a password";
+        alert("please enter a correct password")
     }else{
-        // loginForm.submit();
-        // window.location.href="adminpage.html";
-        
-        // console.log(login(email, password));
-       
-        
+    
         
     }    
 

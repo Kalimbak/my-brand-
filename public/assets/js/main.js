@@ -112,20 +112,20 @@ modalCloses.forEach((modalClose) => {
 
 /* PORTFOLIO SWIPER  */
 
-let swiper = new Swiper(".portfolio__container", {
-    cssMode: true,
-    loop: false, //Allos Us To Loop Through Pagination
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    mousewheel: true,
-    keyboard: true,
-  });
+// let swiper = new Swiper(".portfolio__container", {
+//     cssMode: true,
+//     loop: false, //Allos Us To Loop Through Pagination
+//     navigation: {
+//       nextEl: ".swiper-button-next",
+//       prevEl: ".swiper-button-prev",
+//     },
+//     pagination: {
+//       el: ".swiper-pagination",
+//       clickable: true,
+//     },
+//     mousewheel: true,
+//     keyboard: true,
+//   });
 
 /* TESTIMONIAL */
 
@@ -149,11 +149,7 @@ function scrollActive(){
         const sectionTop = current.offsetTop - 50;
         sectionId = current.getAttribute('id')
 
-    //     if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-    //         document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-    //     }else{
-    //         document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-    //     }
+
     })
 }
 window.addEventListener('scroll', scrollActive)

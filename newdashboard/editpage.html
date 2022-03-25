@@ -42,23 +42,120 @@
     </div>
 
     <section class="create-post">
-        <form class="create-blog-post" name="create" method="POST">
+        <form class="create-blog-post" name="create" method="POST" id="form">
             <h3 class="post-title">Edit Title of Post</h3>
-            <input type="text" name="title" placeholder="Title" />
+            <input type="text" name="title" placeholder="Title" id="title"/>
+           
             <h3 class="post-title">Edit Post image</h3>
-            <input type="file" name="image" class="fileBtn" />
-        <div class="imgPreview">
-            <img class="preview" alt="" src="" />
+            <input type="file" name="image" class="fileBtn" id="img"/>
+        <div class="imgPreview" >
+            <img class="preview" alt="" id="imagePreview" />
         </div>
         
-        <textarea name="body" placeholder="Edit the Body"></textarea>
-        <div class="form-group">
-            <label for="userId">userId</label>
-            <input type="text" class="form-control" id="userId-value"/>
-    </div>
+        <textarea name="body" placeholder="Edit the Body" id="content"></textarea>
+      
         <button class="submit create-btn" type="submit ">UPDATE</button>
         </form>
     </section>
+
+    <script>
+      const blogId = location.search.substring(1)
+      console.log(blogId);
+
+
+        function getDataForm() {
+          if (localStorage.getItem("id")) {
+        
+            document.getElementById("title").value = localStorage.getItem("title")
+            document.getElementById("content").value = localStorage.getItem("content")
+
+            document.getElementById("imagePreview").style.display = "none";
+    
+          } else {
+            document.getElementById("img").required = '';
+          
+          }
+        }
+        getDataForm();
+        let token = localStorage.getItem("token");
+        async function addDataToCollection(title, content, imageUrl) {
+    
+          var myHeaders = new Headers();
+          myHeaders.append("Authorization", token);
+          myHeaders.append("Content-Type", "application/json");
+    
+          var raw = JSON.stringify({
+            "title": title,
+            "content": content,
+            "imageUrl": image
+          });
+    
+          var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+          };
+    
+          fetch("https://kalimbacapstone.herokuapp.com/blogs", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+              console.log(result)
+              alert("Article created well done")
+              location.href = '/dashboard/blog.html'
+    
+            })
+            .catch(error => console.log('error', error));
+        }
+    
+      
+ let requestOption = {
+     method: 'GET',
+     redirect:'follow'
+ };
+ fetch(`https://kalimbacapstone.herokuapp.com/blogs/${blogId}`, requestOption)
+ .then(response => response.json())
+ .then(result =>{
+     console.log(result)
+    document.getElementById("title").value = result.title
+    document.getElementById("content").value = result.content
+    document.getElementById("imagePreview").setAttribute('url', result.image)
+
+ })
+
+
+    
+        function update(id, title, content ) {
+    
+          var myHeaders = new Headers();
+          myHeaders.append("Authorization", token);
+          myHeaders.append("Content-Type", "application/json");
+    
+          var raw = JSON.stringify({
+            "title": title,
+            "content": content,
+       
+          });
+    
+          var requestOptions = {
+            method: 'PATCH',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+          };
+    
+          fetch(`https://kalimbacapstone.herokuapp.com/blogs/${id}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+              console.log(result)
+              alert("Article updated well done")
+              location.href = 'adminpage.html'
+            })
+            .catch(error => console.log('error', error));
+          // localStorage.clear();
+        }
+    
+      </script>
 </body>
 </html>
 </body>

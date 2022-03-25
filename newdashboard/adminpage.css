@@ -329,7 +329,9 @@ main {
     flex-direction: row;
 }
 .card-imageUrl{
-    margin-bottom: 50px;
+    margin-bottom: 0px;
+   width: 100px;
+   height: auto;
 }
 .form{
     display: flex;

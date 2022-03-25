@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="sitemessages.js">
     <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
     <script src="./authentication.js"></script>
-    <title>Document</title>
+    <script src="../public/assets/js/logout.js"></script>
+    <title>Blogs</title>
 </head>
 <body>
     <div class="container">
@@ -122,6 +123,14 @@
     </script>
     <script>
         let norows = 0
+         
+      function storeData(id, title, content, imageURL) {
+        // console.log("done");
+        localStorage.setItem("id", id);
+        localStorage.setItem("title", title);
+        localStorage.setItem("body", body);
+        localStorage.setItem("imageURL", imageUrl);
+      }
         function getdataOnIndex()  {
            let posts_div = document.getElementById("posts");
            let dataToDisplay = "";
@@ -140,7 +149,7 @@
                                     ${norows += 1}
                                   </td>
                             <td>
-                                      <img src="${element.imageURL}">
+                                      <img src="${element.imageUrl}" class="card-imageUrl" ">
                                   </td>
                                   <td>
                                      ${element.title}
@@ -150,14 +159,18 @@
                                   </td>
                                   <td>
                                       <div class="flex">
-                                           <a href="new-article.html" onclick="storeData('${element._id}','${element.title}',${element.content}','${element.imageURL}');">
+                                           <a href="editpage.html?${element._id}" >
                                           <button>Update</button>
                                       </a>
                                    
+                                      <a href="comments.html?${element._id}" >
+                                          <button>comments</button>
+                                      </a>
+           
               <a href="#">
-                                          <button id='${element._id}' onclick='comments(
-                this.id
-              )' class="combtn">comments</button>
+                                        <button id='${element._id}' onclick='delete_post(
+              this.id
+            )' class="delete-button">Delete</button>
              
                                   </td>
                               </tr>
@@ -167,7 +180,38 @@
                            console.log(posts_div)
                       })
                       .catch(error => console.log('error', error));
-            } window.onload=getdataOnIndex();
+            } 
+
+
+            function delete_post(id) {
+        let token = localStorage.getItem("token");
+        console.log(id)
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", token);
+  
+        var requestOptions = {
+          method: 'DELETE',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+  
+        fetch(`https://kalimbacapstone.herokuapp.com/blogs/${id}`, requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            console.log(result)
+            alert("Article deleted well done")
+            getdataOnIndex()
+
+
+          })
+
+        
+      
+        .catch(error => console.log('error', error));
+      }
+      
+     
+  window.onload=getdataOnIndex();
       </script>
     <!-- <script src="./loginp.js"></script> -->
 </body>
