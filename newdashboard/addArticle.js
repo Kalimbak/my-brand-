@@ -9,7 +9,7 @@ const createArticleForm = () => {
   const content = document.getElementById('content-value').value
   const body = document.getElementById('body-value').value
 
-  const image = document.getElementById('imageUrl-value').value
+  const image = document.getElementById('imageField').files[0]
 
   return {title, content, body, image}
 }
@@ -23,24 +23,24 @@ createArticle.addEventListener('click', e => {
 })
 
 const newArticle= async () => {
-  console.log(createArticleForm().title)
-  console.log(createArticleForm().content)
-  console.log(createArticleForm().body)
-  console.log(createArticleForm().image)
+  createArticleForm()
+ const formData = new FormData()
+ const {title, content, body, image} = createArticleForm()
+formData.append("title",title)
+formData.append("content",content)
+formData.append("body",body)
+formData.append("imageUrl",image)
+
+ 
+
   try {
       fetch(apiUrl  + "/blogs", {
           method: 'POST',
           headers: {
               'Authorization': bearer,
-              'Content-Type': 'application/json'
+            
            },
-           body: JSON.stringify({
-              title: createArticleForm().title,
-              content: createArticleForm().content,
-              body: createArticleForm().body,
-              imageUrl: createArticleForm().image
-
-           })
+      body: formData
        }).then(res => {
           if (res.ok === true ) return res.json()
           console.log(`Error Happened...>> Status Code: ${res.status}`) 

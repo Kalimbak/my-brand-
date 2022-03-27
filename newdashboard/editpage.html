@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./editpage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
     <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <title>Create a Post</title>
 
@@ -36,21 +37,21 @@
             </div>
 
             <div class="p-image">
-                <img src="./icon.jpeg" alt="">
+                <img src="" alt="">
             </div>
         </div>
     </div>
 
     <section class="create-post">
-        <form class="create-blog-post" name="create" method="POST" id="form">
+        <form class="create-blog-post" name="create" id="updateForm">
             <h3 class="post-title">Edit Title of Post</h3>
             <input type="text" name="title" placeholder="Title" id="title"/>
             
            
-            <h3 class="post-title">Edit Post image</h3>
-            <input type="file" name="image" class="fileBtn" id="img"/>
+            <!-- <h3 class="post-title">Edit Post image</h3>
+            <input type="file" name="image" class="fileBtn" id="img"/> -->
         <div class="imgPreview" >
-            <img class="preview" alt="" id="imagePreview" />
+            <img class="preview" alt=""  id="imagePreview" />
         </div>
         <h3 class="post-title">Edit Post content</h3>
         <textarea name="content" placeholder="Edit the content" id="content"></textarea>
@@ -59,7 +60,8 @@
     <textarea name="body" placeholder="Edit the Body" id="body"></textarea>
 
 
-        <button class="submit create-btn" type="submit ">UPDATE</button>
+        <input type="submit" class="submit create-btn"  value="UPDATE" name="submit"/>
+  
         </form>
     </section>
 
@@ -74,16 +76,13 @@
             document.getElementById("title").value = localStorage.getItem("title")
             document.getElementById("content").value = localStorage.getItem("content")
             document.getElementById("body").value = localStorage.getItem("body")
-            document.getElementById("imagePreview").style.display = "none";
+            // document.getElementById("imagePreview").style.display = "none";
     
-          } else {
-            document.getElementById("img").required = '';
-          
-          }
+          } 
         }
         getDataForm();
         let token = localStorage.getItem("token");
-        async function addDataToCollection(title, content, body, imageUrl) {
+        async function addDataToCollection(title, content, body, ) {
     
           var myHeaders = new Headers();
           myHeaders.append("Authorization", token);
@@ -92,8 +91,8 @@
           var raw = JSON.stringify({
             "title": title,
             "content": content,
-            "body": body,
-            "imageUrl": image
+            "body": body
+            // "imageUrl": image
           });
     
           var requestOptions = {
@@ -126,14 +125,21 @@
     document.getElementById("title").value = result.title
     document.getElementById("content").value = result.content
     document.getElementById("body").value = result.body
-    document.getElementById("imagePreview").setAttribute('url', result.image)
+    // document.getElementById("imagePreview").setAttribute('src', result.image)
 
  })
 
 
-    
-        function update(id, title, content, body ) {
-    
+ const updateBlog = document.querySelector("#updateForm")    
+ updateBlog.addEventListener("submit", e => {
+e.preventDefault()
+
+       
+    // console.log()
+   const title = document.getElementById("title").value
+   const content = document.getElementById("content").value 
+   const body = document.getElementById("body").value 
+console.log(title, content, body)
           var myHeaders = new Headers();
           myHeaders.append("Authorization", token);
           myHeaders.append("Content-Type", "application/json");
@@ -149,21 +155,74 @@
             method: 'PATCH',
             headers: myHeaders,
             body: raw,
-            redirect: 'follow'
+            // redirect: 'follow'
           };
     
-          fetch(`https://kalimbacapstone.herokuapp.com/blogs/${id}`, requestOptions)
-            .then(response => response.text())
+          fetch(`https://kalimbacapstone.herokuapp.com/blogs/${blogId}`, requestOptions)
+            .then(response => response.json())
             .then(result => {
               console.log(result)
               alert("Article updated well done")
-              location.href = 'adminpage.html'
+              location.href = '/newdashboard/adminpage.html'
             })
             .catch(error => console.log('error', error));
           // localStorage.clear();
-        }
+        
+      
+    })
+
+
+
+
+
+
+
     
       </script>
+      
+  <!-- <script>
+        const blogId = location.search.substring(1)
+      console.log(blogId);
+
+    let status;
+
+    // const blog2 = document.querySelector(".blogBody")
+    const url = `https://kalimbacapstone.herokuapp.com/blogs/${blogId}`
+        //console.log(url);
+    fetch(url)
+        .then((response) => {
+            status = response.status
+            return response.json();
+        })
+        .then((data) => {
+
+            if (status == 200) {
+
+                document.getElementById("title").value = data.title;
+                document.getElementById("content").value = data.content;
+                document.getElementById("body").value = data.body;
+                // document.getElementById("imagePreview").value = data.Content.blog.preview;
+                //blog2.value = data.Content.blog.body;
+                const image = document.getElementById("imagePreview");
+                image.setAttribute("src", data.imageUrl);
+
+            }
+            if (status == 404) {
+                //console.log("Blog not found!!!")
+                swal('error', '(404) ' + data.Error, 'error').then(() => {
+                    // location.href = ''
+                })
+            }
+
+        })
+</script> -->
+
+
+
+
+
+
+
 </body>
 </html>
 </body>
