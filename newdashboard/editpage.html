@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./editpage.css">
+    <link href="/kkkkk.jpg" rel="icon">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>Create a Post</title>
+
+</head>
+<body>
+    <div class="nav">
+
+        <div class="nav-title">
+            <p><a href="./adminpage.html">Dasboard</a></p>
+        </div>
+
+        <div class="profile">
+
+           
+
+            <div class="divider"><hr></div>
+
+            <div class="name">
+                <h5>Kevin kalimba</h5>
+            </div>
+
+            <div class="p-image">
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
+
+    <section class="create-post">
+        <form class="create-blog-post" name="create" id="updateForm">
+            <h3 class="post-title">Edit Title of Post</h3>
+            <input type="text" name="title" placeholder="Title" id="title"/>
+            
+           
+            <!-- <h3 class="post-title">Edit Post image</h3>
+            <input type="file" name="image" class="fileBtn" id="img"/> -->
+        <div class="imgPreview" >
+            <img class="preview" alt=""  id="imagePreview" />
+        </div>
+        <h3 class="post-title">Edit Post content</h3>
+        <textarea name="content" placeholder="Edit the content" id="content"></textarea>
+
+        <h3 class="post-title">Edit Post body</h3>
+    <textarea name="body" placeholder="Edit the Body" id="body"></textarea>
+
+
+        <input type="submit" class="submit create-btn"  value="UPDATE" name="submit"/>
+  
+        </form>
+    </section>
+
+    <script>
+      const blogId = location.search.substring(1)
+      console.log(blogId);
+
+
+        function getDataForm() {
+          if (localStorage.getItem("id")) {
+        
+            document.getElementById("title").value = localStorage.getItem("title")
+            document.getElementById("content").value = localStorage.getItem("content")
+            document.getElementById("body").value = localStorage.getItem("body")
+            // document.getElementById("imagePreview").style.display = "none";
+    
+          } 
+        }
+        getDataForm();
+        let token = localStorage.getItem("token");
+        async function addDataToCollection(title, content, body, ) {
+    
+          var myHeaders = new Headers();
+          myHeaders.append("Authorization", token);
+          myHeaders.append("Content-Type", "application/json");
+    
+          var raw = JSON.stringify({
+            "title": title,
+            "content": content,
+            "body": body
+            // "imageUrl": image
+          });
+    
+          var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+          };
+    
+          fetch("https://kalimbacapstone.herokuapp.com/blogs", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+              console.log(result)
+              alert("Article created well done")
+              location.href = '/dashboard/blog.html'
+    
+            })
+            .catch(error => console.log('error', error));
+        }
+    
+      
+ let requestOption = {
+     method: 'GET',
+     redirect:'follow'
+ };
+ fetch(`https://kalimbacapstone.herokuapp.com/blogs/${blogId}`, requestOption)
+ .then(response => response.json())
+ .then(result =>{
+     console.log(result)
+    document.getElementById("title").value = result.title
+    document.getElementById("content").value = result.content
+    document.getElementById("body").value = result.body
+    // document.getElementById("imagePreview").setAttribute('src', result.image)
+
+ })
+
+
+ const updateBlog = document.querySelector("#updateForm")    
+ updateBlog.addEventListener("submit", e => {
+e.preventDefault()
+
+       
+    // console.log()
+   const title = document.getElementById("title").value
+   const content = document.getElementById("content").value 
+   const body = document.getElementById("body").value 
+console.log(title, content, body)
+          var myHeaders = new Headers();
+          myHeaders.append("Authorization", token);
+          myHeaders.append("Content-Type", "application/json");
+    
+          var raw = JSON.stringify({
+            "title": title,
+            "content": content,
+            "body": body,
+       
+          });
+    
+          var requestOptions = {
+            method: 'PATCH',
+            headers: myHeaders,
+            body: raw,
+            // redirect: 'follow'
+          };
+    
+          fetch(`https://kalimbacapstone.herokuapp.com/blogs/${blogId}`, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+              console.log(result)
+              alert("Article updated well done")
+              location.href = '/newdashboard/adminpage.html'
+            })
+            .catch(error => console.log('error', error));
+          // localStorage.clear();
+        
+      
+    })
+
+
+
+
+
+
+
+    
+      </script>
+      
+  <!-- <script>
+        const blogId = location.search.substring(1)
+      console.log(blogId);
+
+    let status;
+
+    // const blog2 = document.querySelector(".blogBody")
+    const url = `https://kalimbacapstone.herokuapp.com/blogs/${blogId}`
+        //console.log(url);
+    fetch(url)
+        .then((response) => {
+            status = response.status
+            return response.json();
+        })
+        .then((data) => {
+
+            if (status == 200) {
+
+                document.getElementById("title").value = data.title;
+                document.getElementById("content").value = data.content;
+                document.getElementById("body").value = data.body;
+                // document.getElementById("imagePreview").value = data.Content.blog.preview;
+                //blog2.value = data.Content.blog.body;
+                const image = document.getElementById("imagePreview");
+                image.setAttribute("src", data.imageUrl);
+
+            }
+            if (status == 404) {
+                //console.log("Blog not found!!!")
+                swal('error', '(404) ' + data.Error, 'error').then(() => {
+                    // location.href = ''
+                })
+            }
+
+        })
+</script> -->
+
+
+
+
+
+
+
+</body>
+</html>
+</body>
+</html>
+

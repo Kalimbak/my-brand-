@@ -9,26 +9,26 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="/kkkkk.jpg" rel="icon">
 
   <!-- Google Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
 
   <!-- Custom Styling -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../../public/assets/css/styles.css">
+  <script src="../../public/assets/js/anotherlogout.js"></script>
+  <script src="../../public/assets/js/auth12.js"></script>
 
   <title>Single Post</title>
 </head>
 
 <body>
-  <!-- Facebook Page Plugin SDK -->
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=285071545181837&autoLogAppEvents=1">
-  </script>
+ 
 
   <header>
     <div class="logo">
-      <h1 class="logo-text"><a href="/index.html">Kevin</a></h1>
+      <h1 class="logo-text"><a href="/index.html">BLOG</a></h1>
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">
@@ -38,12 +38,11 @@
       <li>
         <a href="#">
           <i class="fa fa-user"></i>
-          Kevin Kalimba
           <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
         </a>
         <ul>
-          <li><a href="/pages/blog-html-css/admin/posts/index.html">Dashboard</a></li>
-          <li><a href="#" class="logout">Logout</a></li>
+         
+          <li><a  onclick="logout()" class="logout">Logout</a></li>
         </ul>
       </li>
     </ul>
@@ -58,134 +57,116 @@
       <!-- Main Content Wrapper -->
       <div class="main-content-wrapper">
         <div class="main-content single">
-          <h1 class="post-title">UI/UX</h1>
+          <h1 class="post-title" id="title"></h1>
 
-          <div class="post-content">
+          <div class="post-content" >
 
-          <img src="/public/assets/img/portfolio3.jpg" alt="">
+          <img  alt="" id="imagePreview">
+        <div id="content" >
+          
+          </div>
         
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
+          <div id="body" >
+          
+          </div>
           </div>
 
         </div>
       </div>
-      <!-- // Main Content -->
-
-      <!-- Sidebar -->
-      <div class="sidebar single">
-
-        <div class="fb-page" data-href="https://web.facebook.com/codingpoets/" data-small-header="false"
-          data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-          <blockquote cite="https://web.facebook.com/codingpoets/" class="fb-xfbml-parse-ignore"><a
-              href="https://web.facebook.com/codingpoets/">Coding Poets</a></blockquote>
-        </div>
-
-
-        <div class="section popular">
-          <h2 class="section-title">Recent</h2>
-
-          <div class="post clearfix">
-            <img src="/public/assets/img/portfolio3.jpg" alt="">
-            <a href="" class="title">
-              <h4>UI/UX</h4>
-            </a>
-          </div>
-          <div class="post clearfix">
-            <img src="/public/assets/img/portfolio2.jpg" alt="">
-            <a href="" class="title">
-              <h4>Web Application</h4>
-            </a>
-          </div>
-          <div class="post clearfix">
-            <img src="/public/assets/img/portfolio1.jpg" alt="">
-            <a href="" class="title">
-              <h4>Online Store</h4>
-            </a>
-          </div>
-          <!-- <div class="post clearfix">
-            <img src="/public/assets/img/portfolio1.jpg" alt="">
-            <a href="" class="title">
-              <h4>How to overcome your fears</h4>
-            </a>
-          </div>
-          <div class="post clearfix">
-            <img src="/public/assets/img/portfolio1.jpg" alt="">
-            <a href="" class="title">
-              <h4>How to overcome your fears</h4>
-            </a>
-          </div> -->
-
-        </div>
-      </div>
-      <!-- // Sidebar -->
+     
 
     </div>
-    <!-- // Content -->
 
+    
+    <!-- // Content -->
+    <div class="row mt-5 text-black">
+      <div class="col-lg-12">
+          <h5 class="muted-text fadeInUp animated">
+              Want to comment on this Article
+          </h5>
+          <div class="row mb-5">
+              <div class="col-lg-6 fadeInUp animated">
+                  <form action="" method="post" id="commentForm">
+                      <span class="text-danger" id="name-error"></span>
+
+
+                      <input type="text" name="name" class="form-control" placeholder="Full Name" id="nameId">
+                      <span class="text-danger" id="email-error"></span>
+                      <input type="text" name="email" class="form-control  mt-3" placeholder="Email" id="emailId">
+
+                      <span class="text-danger" id="comment-error"></span>
+                      <textarea rows="4" cols="50" name="comment" class=" form-control mt-3"
+                          placeholder="Give your comment here..." id="commentId"></textarea>
+
+                      <input type='submit' id="sendQuerry" value="COMMENT" class="btn btn-primary-1 mb-3 mt-3">
+                  </form>
+              </div>
+         
+
+          </div>
+
+      </div>
+  </div>
+
+  <div>
+
+
+
+
+  </div>
   </div>
   <!-- // Page Wrapper -->
 
   <!-- footer -->
-  <div class="footer">
-    <div class="footer-bottom">
-      Full stack developer &copy; kevin.kalimba54@gmail.com 
-    </div>
+ <!-- FOOTER -->
+ <footer class="footer">
+  <div class="footer__bg">
+      <div class="footer__container container grid">
+          
+          <div class="footer__socials grid">
+              <a href="" target="_blank" class="footer__social"><i class="uil uil-twitter-alt"></i></a>
+              <a href="" target="_blank" class="footer__social"><i class="uil uil-linkedin-alt"></i></a>
+              <a href="" target="_blank" class="footer__social"><i class="uil uil-github-alt"></i></a>
+          </div>
+          <div class="footer__copyright container grid">
+              <p class="footer__copy">Full stack developer &#169; Kevin kalimba. All Rights Reserved</p>
+          
+          </div>
+      </div>
+    
   </div>
+</footer>
+
   <!-- // footer -->
 
 
   <!-- JQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
   <!-- Slick Carousel -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
   <!-- Custom Script -->
-  <script src="js/scripts.js"></script>
+  <script src="../../public/assets/js/comment.js"></script>
+  <script>
+const blogId = location.search.substring(1)
+
+     let requestOption = {
+     method: 'GET',
+     redirect:'follow'
+ };
+ fetch(`https://kalimbacapstone.herokuapp.com/blogs/${blogId}`, requestOption)
+ .then(response => response.json())
+ .then(result =>{
+     console.log(result)
+    document.getElementById("title").innerHTML = result.title
+    document.getElementById("content").innerHTML = result.content
+    document.getElementById("body").innerHTML = result.body
+    document.getElementById("imagePreview").setAttribute('src', result.imageUrl)
+
+
+ })
+
+
+  </script>
 
 </body>
 

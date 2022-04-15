@@ -100,23 +100,23 @@
 // //   const analytics = getAnalytics(app);
 // // </script>
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCgBqyti3giSAggKoUABN2NdLFuGsB9yoc",
-  authDomain: "admin-2d3a6.firebaseapp.com",
-  projectId: "admin-2d3a6",
-  storageBucket: "admin-2d3a6.appspot.com",
-  messagingSenderId: "814284718272",
-  appId: "1:814284718272:web:da6c07dbc4f036e476ed25",
-  measurementId: "G-5Y16GEX4YG"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCgBqyti3giSAggKoUABN2NdLFuGsB9yoc",
+//   authDomain: "admin-2d3a6.firebaseapp.com",
+//   projectId: "admin-2d3a6",
+//   storageBucket: "admin-2d3a6.appspot.com",
+//   messagingSenderId: "814284718272",
+//   appId: "1:814284718272:web:da6c07dbc4f036e476ed25",
+//   measurementId: "G-5Y16GEX4YG"
+// };
 
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-function logout() {
-  firebase.auth().signOut().then(() => {
-    // Sign-out successful.
-    location.href="/pages/login.html"
-  }).catch((error) => {
-    // An error happened.
-  });
-}
+// // Initialize Firebase
+// const app = firebase.initializeApp(firebaseConfig);
+// function logout() {
+//   firebase.auth().signOut().then(() => {
+//     // Sign-out successful.
+//     location.href="/pages/login.html"
+//   }).catch((error) => {
+//     // An error happened.
+//   });
+// }
